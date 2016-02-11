@@ -18,9 +18,13 @@ before_action :authenticate_user!, except: [:index, :show]
     @post = Post.new
   end
 
-  # GET /posts/1/edit
-  def edit
-  end
+
+# GET /posts/1/edit
+ def edit
+ unless @post.user_id == current_user.id
+   redirect_to @post, notice: 'u R not what you seemed.'
+ end
+ end
 
   # POST /posts
   # POST /posts.json
