@@ -75,6 +75,6 @@ before_action :authenticate_user!, except: [:index, :show]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :content)
+      params.require(:post).permit(:name, :content, :picture)
     end
 end
